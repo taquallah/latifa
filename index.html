@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: gray;
+        }
+        
+        .navbar {
+            background-color: #333;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+        }
+        
+        .active {
+            color: #fff !important;
+            font-weight: bold;
+        }
+        
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                flex-direction: column;
+                align-items: center;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.3s ease;
+            }
+            
+            .nav-links.active {
+                height: auto;
+                padding: 1rem 0;
+                border-top: 1px solid #444;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="sd.png" alt="" style="border-radius: 25px;"></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fruit Gallery</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f5f5f5;
+                padding: 2rem;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                text-align: center;
+                margin-bottom: 2rem;
+                color: #333;
+            }
+            
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .fruit-card {
+                background-color: white;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+            
+            .fruit-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .fruit-image {
+                height: 150px;
+                width: 200px;
+                object-fit: cover;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .fruit-info {
+                padding: 1.5rem;
+            }
+            
+            .fruit-name {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+            
+            .fruit-description {
+                color: #666;
+                margin-bottom: 1rem;
+            }
+            
+            .button-group {
+                display: flex;
+                gap: 0.5rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+            
+            .btn-info {
+                background-color: #3498db;
+                color: white;
+            }
+            
+            .btn-info:hover {
+                background-color: #2980b9;
+            }
+            
+            .btn-like {
+                background-color: #e74c3c;
+                color: white;
+            }
+            
+            .btn-like:hover {
+                background-color: #c0392b;
+            }
+            
+            .info-box {
+                margin-top: 1rem;
+                padding: 1rem;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                border-left: 4px solid #3498db;
+                display: none;
+            }
+            
+            .likes-count {
+                display: inline-block;
+                margin-left: 0.5rem;
+                font-weight: bold;
+            }
+            
+            @media (max-width: 768px) {
+                .gallery {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Fresh Fruit Gallery</h1>
+            
+            <div class="gallery">
+                <!-- Fruit 1 -->
+                <div class="fruit-card">
+                    <img src="iop.jpeg" alt="Apple" class="fruit-image">
+                    <div class="fruit-info">
+                        <h2 class="fruit-name">Fresh Apples</h2>
+                        <p class="fruit-description">The fruit of pple are Sweet and crisp apples, perfect for snacking or baking have different nutrition and vitamin .</p>
+                        <div class="button-group">
+                            <button class="btn btn-info" onclick="toggleInfo('apple-info')">Nutrition Info</button>
+                            <button class="btn btn-like" onclick="likeItem('apple-likes')">Like <span class="likes-count" id="apple-likes">0</span></button>
+                        </div>
+                        <div class="info-box" id="apple-info">
+                            <p>Apples are rich in fiber, vitamins, and antioxidants. One medium apple provides about 95 calories and 4.4g of fiber.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fruit 2 -->
+                <div class="fruit-card">
+                    <img src="huy.jpej.jpg" alt="Banana" class="fruit-image">
+                    <div class="fruit-info">
+                        <h2 class="fruit-name">Ripe Bananas</h2>
+                        <p class="fruit-description">Banana are good fluit and sweet of human the bananas are cheaper and have nutrition,vitamin on different human great for smoothies and quick energy.</p>
+                        <div class="button-group">
+                            <button class="btn btn-info" onclick="toggleInfo('banana-info')">Nutrition Info</button>
+                            <button class="btn btn-like" onclick="likeItem('banana-likes')">Like <span class="likes-count" id="banana-likes">0</span></button>
+                        </div>
+                        <div class="info-box" id="banana-info">
+                            <p>Bananas are packed with potassium and vitamin B6. One medium banana contains about 105 calories and 3g of fiber.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fruit 3 -->
+                <div class="fruit-card">
+                    <img src="gh.jpeg" alt="Strawberry" class="fruit-image">
+                    <div class="fruit-info">
+                        <h2 class="fruit-name">Strawberries</h2>
+                        <p class="fruit-description">Juicy and aromatic strawberries are sweet of children are beautful, perfect for desserts.</p>
+                        <div class="button-group">
+                            <button class="btn btn-info" onclick="toggleInfo('strawberry-info')">Nutrition Info</button>
+                            <button class="btn btn-like" onclick="likeItem('strawberry-likes')">Like <span class="likes-count" id="strawberry-likes">0</span></button>
+                        </div>
+                        <div class="info-box" id="strawberry-info">
+                            <p>Strawberries are low in calories but high in vitamin C and antioxidants. One cup of strawberries provides only 49 calories.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function toggleInfo(id) {
+                const infoBox = document.getElementById(id);
+                if (infoBox.style.display === "block") {
+                    infoBox.style.display = "none";
+                } else {
+                    infoBox.style.display = "block";
+                }
+            }
+            
+            function likeItem(id) {
+                const likesElement = document.getElementById(id);
+                let likes = parseInt(likesElement.innerText);
+                likes++;
+                likesElement.innerText = likes;
+                
+                // Add heart animation
+                const btn = likesElement.parentElement;
+                btn.classList.add('liked');
+                setTimeout(() => {
+                    btn.classList.remove('liked');
+                }, 300);
+            }
+        </script>
+    </body>
+    </html>
+    
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Footer</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .main-content {
+                flex-grow: 1;
+                padding: 2rem;
+                background-color: #f4f4f4;
+            }
+            
+            footer {
+                background-color: #333;
+                color: #fff;
+                padding: 3rem 0;
+            }
+            
+            .footer-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 2rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+            
+            .footer-section h3 {
+                color: #fff;
+                margin-bottom: 1.5rem;
+                font-size: 1.2rem;
+                position: relative;
+                padding-bottom: 0.5rem;
+            }
+            
+            .footer-section h3::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 50px;
+                height: 2px;
+                background-color: #4CAF50;
+            }
+            
+            .footer-section p, .footer-section a {
+                color: #bbb;
+                margin-bottom: 0.8rem;
+                text-decoration: none;
+                display: block;
+                transition: all 0.3s ease;
+            }
+            
+            .footer-section a:hover {
+                color: #fff;
+                padding-left: 5px;
+            }
+            
+            .social-icons {
+                display: flex;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                background-color: #444;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+            
+            .social-icon:hover {
+                background-color: #4CAF50;
+                transform: translateY(-3px);
+            }
+            
+            .social-icon img {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .contact-info li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+                color: #bbb;
+            }
+            
+            .contact-info li span {
+                margin-right: 10px;
+            }
+            
+            .bottom-bar {
+                background-color: #222;
+                padding: 1.5rem 0;
+                text-align: center;
+                margin-top: 2rem;
+            }
+            
+            .bottom-bar p {
+                color: #bbb;
+                font-size: 0.9rem;
+            }
+            
+            @media screen and (max-width: 768px) {
+                .footer-container {
+                    grid-template-columns: 1fr;
+                }
+                
+                .footer-section {
+                    margin-bottom: 2rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        
+        <footer>
+                <div class="footer-section">
+                    <h3>New Life</h3>
+                    <form> <input type="text"name="Enter your Email" placeholder="Enter your Email"style="padding: 15px; width: 30%; margin-bottom: 1rem; border: none; border-radius: 4px; margin-left: 40px;"><br>
+                        <button type="submit" style="padding: 10px; background-color: #ff01de; color: white; border: none; border-radius: 4px; cursor: pointer; width: 20%; margin-left: 40px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="bottom-bar">
+                <p>&copy; 2025 Your Developers. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </body>
+    </html>
+</body>
+</html>
